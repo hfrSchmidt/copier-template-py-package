@@ -89,6 +89,11 @@ use_tox:
   default: true
   help: Do you wish to use tox?
 
+use_cli:
+  type: bool
+  default: true
+  help: Do you wish to provide a CLI?
+
 cicd_tool:
   type: str
   help: Which CI/CD tool do you plan to use?
@@ -102,7 +107,7 @@ commandline_interface:
   choices:
     - "click"
     - "none"
-  default: "click"
+  default: "{{ 'click' if use_cli else 'none' }}"
   help: Which commandline interface would you like to use?
 
 use_author_file:
