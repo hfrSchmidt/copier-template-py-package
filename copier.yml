@@ -1,0 +1,169 @@
+
+# questions
+project_name:
+  type: str
+  help: What is your project name?
+
+project_short_description:
+  type: str
+  help: What does your project do?
+
+module_name:
+  type: str
+  help: What is your module name?
+
+full_name:
+  type: str
+  help: What is your full name?
+
+email:
+  type: str
+  help: What is your email address?
+
+use_github:
+  type: bool
+  default: true
+  help: Do you want to use GitHub?
+
+github_username:
+  type: str
+  help: What is your user name on GitHub?
+
+pypi_username:
+  type: str
+  default: "{{ github_username if use_github else '' }}"
+  help: What is your user name on PyPI?
+
+initial_version:
+  type: str
+  default: "0.1.0"
+  help: What should be the initial version of the project?
+
+support_py_37:
+  type: bool
+  default: true
+  help: Do you wish to support python 3.7?
+
+support_py_38:
+  type: bool
+  default: true
+  help: Do you wish to support python 3.8?
+
+support_py_39:
+  type: bool
+  default: true
+  help: Do you wish to support python 3.9?
+
+support_py_310:
+  type: bool
+  default: true
+  help: Do you wish to support python 3.10?
+
+support_py_311:
+  type: bool
+  default: true
+  help: Do you wish to support python 3.11?
+
+support_py_312:
+  type: bool
+  default: false
+  help: Do you wish to support python 3.12?
+
+use_pytest:
+  type: bool
+  default: true
+  help: Do you wish to use pytest as the testing framework?
+
+use_coverage:
+  type: bool
+  default: true
+  help: Do you wish to use coverage?
+
+use_black:
+  type: bool
+  default: true
+  help: Do you wish to use black?
+
+use_tox:
+  type: bool
+  default: true
+  help: Do you wish to use tox?
+
+cicd_tool:
+  type: str
+  help: Which CI/CD tool do you plan to use?
+  default: "{{ 'github-actions' if use_github else 'none' }}"
+  choices:
+    - "github-actions"
+    - "none"
+
+commandline_interface:
+  type: str
+  choices:
+    - "click"
+    - "none"
+  default: "click"
+  help: Which commandline interface would you like to use?
+
+use_author_file:
+  type: bool
+  default: true
+  help: Would you like to use an AUTHORS.rst file?
+
+is_open_source:
+  type: bool
+  default: true
+  help: Is this project open source?
+
+open_source_license:
+  type: str
+  choices:
+    - MIT
+    - GNU GPLv3
+    - GNU AGPLv3
+    - BSD 2-Clause "Simplified"
+    - BSD 3-Clause Clear
+    - BSD 3-Clause "Revised"
+    - Unlicense
+  default: "{{ 'MIT' if is_open_source else '' }}"
+  help: Which open source license do you want to use?
+
+release_status:
+  type: str
+  choices:
+    - "Development Status :: 2 - Pre-Alpha"
+    - "Development Status :: 3 - Alpha"
+    - "Development Status :: 4 - Beta"
+    - "Development Status :: 5 - Production/Stable"
+  default: "Development Status :: 2 - Pre-Alpha"
+  help: What is the release status of your project?
+
+audience_developers:
+  type: bool
+  default: false
+  help: Does the intended audience for this project include developers?
+
+audience_admins:
+  type: bool
+  default: false
+  help: Does the intended audience for this project include system administrators?
+
+targets_os_linux:
+  type: bool
+  default: true
+  help: Does the project target Linux?
+
+targets_os_macos:
+  type: bool
+  default: true
+  help: Does the project target MacOS?
+
+targets_os_win:
+  type: bool
+  default: true
+  help: Does the project target Microsoft Windows?
+
+topic_sysadmin:
+  type: bool
+  default: false
+  help: Does the project fall under the topic "Systems Administration"?
