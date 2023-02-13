@@ -1,3 +1,5 @@
+# Config
+_templates_suffix: .jinja
 
 # questions
 project_name:
