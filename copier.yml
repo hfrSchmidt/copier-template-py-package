@@ -1,5 +1,6 @@
 # Config
 _templates_suffix: .jinja
+_min_copier_version: "7.0"
 
 # questions
 project_name:
