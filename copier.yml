@@ -1,5 +1,5 @@
 # Config
-_templates_suffix: .jinja
+_templates_suffix: .jinja2
 _min_copier_version: "7.0"
 
 # questions
@@ -42,6 +42,11 @@ initial_version:
   default: "0.1.0"
   help: What should be the initial version of the project?
 
+supported_py_versions:
+  type: json
+  default: "[3.10, 3.11]"
+  help: Please list the python versions you would like to support in json format ([3.10,3.11]).
+
 support_py_37:
   type: bool
   default: true
@@ -76,6 +81,11 @@ py_dev_version:
   type: str
   default: "{{ '3.11' if support_py_311 else '3.10' if support_py_310 else '3.9' if support_py_39 else '3.8' if support_py_38 else '3.7' }}"
   help: What is your main development python version?
+
+min_py_version:
+  type: str
+  default: "{{ '3.7' if support_py_37 else '3.8' if support_py_38 else '3.9' if support_py_39 else '3.10' if support_py_310 else '3.11' }}"
+  help: What is the minimum python version you wish to support?
 
 use_pytest:
   type: bool
@@ -115,8 +125,9 @@ commandline_interface:
   choices:
     - "click"
     - "none"
-  default: "{{ 'click' if use_cli else 'none' }}"
+  default: "none"
   help: Which commandline interface would you like to use?
+  when: use_cli
 
 use_author_file:
   type: bool
@@ -151,32 +162,38 @@ release_status:
   default: "Development Status :: 2 - Pre-Alpha"
   help: What is the release status of your project?
 
-audience_developers:
-  type: bool
-  default: false
-  help: Does the intended audience for this project include developers?
+intended_audience:
+  type: str
+  choices:
+    - "Intended Audience :: Developers"
+    - "Intended Audience :: Science/Research"
+    - "Intended Audience :: System Administrators"
+    - "Intended Audience :: Healthcare Industry"
+  default: "Intended Audience :: System Administrators"
+  help: What audience is your project targeting?
 
-audience_admins:
-  type: bool
-  default: false
-  help: Does the intended audience for this project include system administrators?
+target_os:
+  type: str
+  choices:
+    - "Operating System :: MacOS"
+    - "Operating System :: Microsoft :: Windows"
+    - "Operating System :: POSIX :: Linux"
+    - "Operating System :: POSIX :: BSD"
+  default: "Operating System :: POSIX :: Linux"
+  help: What operating system is your project developed for?
 
-targets_os_linux:
-  type: bool
-  default: true
-  help: Does the project target Linux?
+topic:
+  type: str
+  choices:
+    - "Topic :: Scientific/Engineering"
+    - "Topic :: Scientific/Engineering :: Bio-Informatics"
+    - "Topic :: Scientific/Engineering :: Medical Science Apps"
+    - "Topic :: Software Development"
+    - "Topic :: System :: Systems Administration"
+  default: "Topic :: System :: Systems Administration"
+  help: What topic best describes your project?
 
-targets_os_macos:
-  type: bool
-  default: true
-  help: Does the project target MacOS?
-
-targets_os_win:
-  type: bool
-  default: true
-  help: Does the project target Microsoft Windows?
-
-topic_sysadmin:
-  type: bool
-  default: false
-  help: Does the project fall under the topic "Systems Administration"?
+keywords:
+  type: str
+  default: ""
+  help: What does your project relate to? Comma-separated answers appear on the project page.
