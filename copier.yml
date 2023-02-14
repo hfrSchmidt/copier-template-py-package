@@ -72,6 +72,11 @@ support_py_312:
   default: false
   help: Do you wish to support python 3.12?
 
+py_dev_version:
+  type: str
+  default: "{{ '3.11' if support_py_311 else '3.10' if support_py_310 else '3.9' if support_py_39 else '3.8' if support_py_38 else '3.7' }}"
+  help: What is your main development python version?
+
 use_pytest:
   type: bool
   default: true
