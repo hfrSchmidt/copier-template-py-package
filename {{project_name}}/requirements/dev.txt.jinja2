@@ -1,0 +1,4 @@
+{% if use_coverage %}coverage==7.1.0{% endif%}
+{% if use_pytest %}pytest==7.2.1{% endif%}
+pre-commit==3.0
+{% if use_cli and commandline_interface == "click" %}click==8.1.3{% endif%}
