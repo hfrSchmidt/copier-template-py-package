@@ -19,6 +19,10 @@ full_name:
   type: str
   help: What is your full name?
 
+current_year:
+  type: str
+  help: What is the current year (for copyright in licenses)?
+
 email:
   type: str
   help: What is your email address?
@@ -146,7 +150,6 @@ open_source_license:
     - GNU GPLv3
     - GNU AGPLv3
     - BSD 2-Clause "Simplified"
-    - BSD 3-Clause Clear
     - BSD 3-Clause "Revised"
     - Unlicense
   default: "{{ 'MIT' if is_open_source else '' }}"
