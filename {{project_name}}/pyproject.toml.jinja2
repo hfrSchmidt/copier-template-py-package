@@ -22,7 +22,7 @@ version = "{{ initial_version }}"  # Required
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
 # https://packaging.python.org/specifications/core-metadata/#summary
-description = "{{ cookiecutter.project_short_description }}"  # Optional
+description = "{{ project_short_description }}"  # Optional
 
 # This is an optional longer description of your project that represents
 # the body of text which users will see when they visit PyPI.
@@ -103,24 +103,9 @@ classifiers = [  # Optional
   # that you indicate you support Python 3. These classifiers are *not*
   # checked by "pip install". See instead "python_requires" below.
   "Programming Language :: Python",
-{%- if support_py_37%}
-  "Programming Language :: Python :: 3.7",
-{%- endif %}
-{%- if support_py_38%}
-  "Programming Language :: Python :: 3.8",
-{%- endif %}
-{%- if support_py_39%}
-  "Programming Language :: Python :: 3.9",
-{%- endif %}
-{%- if support_py_310%}
-  "Programming Language :: Python :: 3.10",
-{%- endif %}
-{%- if support_py_311%}
-  "Programming Language :: Python :: 3.11",
-{%- endif %}
-{%- if support_py_312%}
-  "Programming Language :: Python :: 3.12",
-{%- endif %}
+{% for vers in supported_py_versions %}
+  "Programming Language :: Python :: {{ vers }}"{% if not loop.last %},{% endif %}
+{% endfor %}
 ]
 
 # This field lists other packages that your project depends on to run.
