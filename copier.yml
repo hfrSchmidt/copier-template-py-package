@@ -48,17 +48,27 @@ initial_version:
 
 supported_py_versions:
   type: json
-  default: "[3.7, 3.8, 3.9, 3.10, 3.11]"
-  help: Please list the python versions you would like to support in json format ([3.10,3.11]).
+  default: ['3.7', '3.8', '3.9', '3.10', '3.11']
+  help: Please list the python versions you would like to support in json format (['3.10','3.11']).
 
 py_dev_version:
   type: str
-  default: "{{ supported_py_versions | max }}"
+  default: |-
+    {%- if '3.11' in supported_py_versions -%}'3.11'
+    {%- elif '3.10' in supported_py_versions -%}'3.10'
+    {%- elif '3.9' in supported_py_versions -%}'3.9'
+    {%- elif '3.8' in supported_py_versions -%}'3.8'
+    {%- elif '3.7' in supported_py_versions -%}'3.7'{%- endif -%}
   help: What is your main development python version?
 
 min_py_version:
   type: str
-  default: "{{ supported_py_versions | min }}"
+  default: |-
+    {%- if '3.7' in supported_py_versions -%}'3.7'
+    {%- elif '3.8' in supported_py_versions -%}'3.8'
+    {%- elif '3.9' in supported_py_versions -%}'3.9'
+    {%- elif '3.10' in supported_py_versions -%}'3.10'
+    {%- elif '3.11' in supported_py_versions -%}'3.11'{%- endif -%}
   help: What is the minimum python version you wish to support?
 
 use_pytest:
@@ -81,7 +91,7 @@ use_tox:
   default: true
   help: Do you wish to use tox?
 
-use_pre-commit:
+use_precommit:
   type: bool
   default: true
   help: Do you wish to use pre-commit?
