@@ -1,0 +1,18 @@
+"""Console script for {{ package_name }}."""
+
+{%- if command_line_interface|lower == 'click' %}
+import click
+{%- endif %}
+import sys
+
+{% if command_line_interface|lower == 'click' %}
+@click.command()
+def main(args=None):
+    """Console script for {{ package_name }}."""
+    click.echo("Place your code into "
+               "{{ package_name }}.cli.main")
+    return 0
+{%- endif %}
+
+if __name__ == "__main__":
+    sys.exit(main())  # pragma: no cover
