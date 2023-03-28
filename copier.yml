@@ -81,6 +81,11 @@ use_tox:
   default: true
   help: Do you wish to use tox?
 
+use_pre-commit:
+  type: bool
+  default: true
+  help: Do you wish to use pre-commit?
+
 use_cli:
   type: bool
   default: true
