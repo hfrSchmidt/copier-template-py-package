@@ -48,47 +48,17 @@ initial_version:
 
 supported_py_versions:
   type: json
-  default: "[3.10, 3.11]"
+  default: "[3.7, 3.8, 3.9, 3.10, 3.11]"
   help: Please list the python versions you would like to support in json format ([3.10,3.11]).
-
-support_py_37:
-  type: bool
-  default: true
-  help: Do you wish to support python 3.7?
-
-support_py_38:
-  type: bool
-  default: true
-  help: Do you wish to support python 3.8?
-
-support_py_39:
-  type: bool
-  default: true
-  help: Do you wish to support python 3.9?
-
-support_py_310:
-  type: bool
-  default: true
-  help: Do you wish to support python 3.10?
-
-support_py_311:
-  type: bool
-  default: true
-  help: Do you wish to support python 3.11?
-
-support_py_312:
-  type: bool
-  default: false
-  help: Do you wish to support python 3.12?
 
 py_dev_version:
   type: str
-  default: "{{ '3.11' if support_py_311 else '3.10' if support_py_310 else '3.9' if support_py_39 else '3.8' if support_py_38 else '3.7' }}"
+  default: "{{ supported_py_versions | max }}"
   help: What is your main development python version?
 
 min_py_version:
   type: str
-  default: "{{ '3.7' if support_py_37 else '3.8' if support_py_38 else '3.9' if support_py_39 else '3.10' if support_py_310 else '3.11' }}"
+  default: "{{ supported_py_versions | min }}"
   help: What is the minimum python version you wish to support?
 
 use_pytest:
