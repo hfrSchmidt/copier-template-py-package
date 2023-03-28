@@ -1,0 +1,35 @@
+name: Pre-commit update
+
+on:
+  schedule:
+    - cron: '5 4 * * 0,3'
+
+jobs:
+  pre-commit-update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: set up python installation
+        uses: actions/setup-python@v4
+        with:
+          python-version: '{{ py_dev_version }}'
+      
+      - name: install pre-commit
+        run: python3 -m pip install --user pre-commit
+
+      - name: run pre-commit updater
+        run: pre-commit autoupdate
+
+      - name: create a pull request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: {% raw %}"${{ secrets.GITHUB_TOKEN }}" {% endraw%}
+          commit-message: "chore(dep): Auto-update pre-commit"
+          branch: update/pre-commit
+          body: |
+            Update the tools in the pre-commit
+            config to the latest version. 
+          labels:
+            dependencies
+            pre-commit
