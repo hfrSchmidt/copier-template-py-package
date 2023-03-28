@@ -113,8 +113,7 @@ commandline_interface:
   type: str
   choices:
     - "click"
-    - "none"
-  default: "none"
+  default: "click"
   help: Which commandline interface would you like to use?
   when: use_cli
 
