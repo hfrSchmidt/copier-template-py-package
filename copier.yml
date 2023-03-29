@@ -136,8 +136,9 @@ open_source_license:
     - BSD 2-Clause "Simplified"
     - BSD 3-Clause "Revised"
     - Unlicense
-  default: "{{ 'MIT' if is_open_source else '' }}"
+  default: "MIT"
   help: Which open source license do you want to use?
+  when: is_open_source
 
 release_status:
   type: str
