@@ -1,6 +1,7 @@
 # Config
 _templates_suffix: .jinja2
 _min_copier_version: "7.0"
+_subdirectory: "{{ project_name }}"
 
 # questions
 project_name:
@@ -11,9 +12,9 @@ project_short_description:
   type: str
   help: What does your project do?
 
-module_name:
+package_name:
   type: str
-  help: What is your module name?
+  help: What is your package name?
 
 full_name:
   type: str
