@@ -162,6 +162,7 @@ test = [
 {{ package_name }} = '{{ package_name }}.cli:main'
 {%- endif %}
 
+{%- if use_tox %}
 # The next lines represent the tox configuration as an inline .ini file
 [tool.tox]
 legacy_tox_ini = """
@@ -174,7 +175,6 @@ legacy_tox_ini = """
 {%- for py_version in supported_py_versions %}
     py3{{ py_version | replace('3.', '') }}
 {%- endfor %}
-{% if use_coverage %}    coverage{%- endif%}
 
 {%- if cicd_tool == "github-actions" %}
   [gh-actions]
