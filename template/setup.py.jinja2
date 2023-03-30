@@ -8,11 +8,12 @@ import setuptools
 dependencies = [{%- if use_cli and commandline_interface == 'click' %}'Click>=8.0',{%- endif%}]
 
 {%- set license_classifiers = {
-    'MIT license': 'License :: OSI Approved :: MIT License',
-    'BSD license': 'License :: OSI Approved :: BSD License',
-    'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
-    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
-    'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
+    'MIT': 'License :: OSI Approved :: MIT License',
+    'BSD 2-Clause "Simplified"': 'License :: OSI Approved :: BSD License',
+    'BSD 3-Clause "Revised"': 'License :: OSI Approved :: BSD License',
+    'Unlicense': 'License :: OSI Approved :: The Unlicense (Unlicense)',
+    'GNU GPLv3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    'GNU AGPLv3': 'License :: OSI Approved :: GNU Affero General Public License v3'
 } %}
 
 # Setup boilerplate below this line.
@@ -35,14 +36,14 @@ packages = [
 #     namespaces.append("{{ package_name }}.<namespace>")
 
 setuptools.setup(
-    name="{{ repository_name }}",
+    name="{{ project_name }}",
     version="{{ initial_version }}",
     description="{{ project_short_description }}",
     long_description=readme,
     author="{{ full_name }}",
     author_email="{{ email }}",
 {% if is_open_source %}    license="{{ open_source_license }}",{% endif %}
-    url="https://github.com/{{ github_username }}/{{ repository_name }}",
+    url="https://github.com/{{ github_username }}/{{ project_name }}",
     classifiers=[
         "{{ release_status }}",
 {%- if open_source_license in license_classifiers %}
@@ -66,7 +67,7 @@ setuptools.setup(
         ],
     },
 {%- endif %}
-    python_requires=">={{ supported_py_version | min }}",
+    python_requires=">={{ min_py_version }}",
     include_package_data=True,
     zip_safe=False,
 )
