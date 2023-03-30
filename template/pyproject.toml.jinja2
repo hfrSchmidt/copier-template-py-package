@@ -162,7 +162,7 @@ test = [
 {{ package_name }} = '{{ package_name }}.cli:main'
 {%- endif %}
 
-{%- if use_tox %}
+{% if use_tox %}
 # The next lines represent the tox configuration as an inline .ini file
 [tool.tox]
 legacy_tox_ini = """
