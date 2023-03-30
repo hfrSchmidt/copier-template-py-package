@@ -36,6 +36,7 @@ use_github:
 github_username:
   type: str
   help: What is your user name on GitHub?
+  when: use_github
 
 pypi_username:
   type: str
