@@ -180,26 +180,22 @@ legacy_tox_ini = """
   [gh-actions]
   python =
 {%- for py_version in supported_py_versions %}
-    {{ py_version }}: py{{ py_version | replace('.','') }}{%- if use_coverage %}, coverage{%- endif%}
+    {{ py_version }}: py{{ py_version | replace('.','') }}
 {%- endfor%}
 {%- endif%}
 
 {%- if use_pytest %}
   [testenv]
-  description = run unit tests
+  description = run unit tests {%if use_coverage %} with coverage analysis {%endif%}
   deps = 
     pytest
-  commands = pytest tests
-
-{%- if use_coverage %}
-  [testenv:coverage]
-  description = run test coverage analysis
-  deps = 
-    pytest
+  {%- if use_coverage %}
     pytest-cov
-  commands = 
-    pytest --cov {{ package_name }} --cov-append --cov-report=term-missing
-  
+  commands = pytest --cov {{ package_name }} --cov-append --cov-report=term-missing
+  {%- else%}
+  commands = pytest tests
+  {%- endif%}
+
   [testenv:clean]
   description = remove coverage reports
   deps = coverage
