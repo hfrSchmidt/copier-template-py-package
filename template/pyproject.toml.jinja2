@@ -3,14 +3,14 @@
 # package, this name will be registered for you. It will determine how
 # users can install this project, e.g.:
 #
-# $ pip install {{ repository_name }}
+# $ pip install {{ project_name }}
 #
-# And where it will live on PyPI: https://pypi.org/project/{{ repository_name }}/
+# And where it will live on PyPI: https://pypi.org/project/{{ project_name }}/
 #
 # There are some restrictions on what makes a valid project name
 # specification here:
 # https://packaging.python.org/specifications/core-metadata/#name
-name = "{{ repository_name }}"  # Required
+name = "{{ project_name }}"  # Required
 
 # Versions should comply with PEP 440:
 # https://www.python.org/dev/peps/pep-0440/
@@ -74,11 +74,12 @@ maintainers = [
 ]
 
 {%- set license_classifiers = {
-    'MIT license': 'License :: OSI Approved :: MIT License',
-    'BSD license': 'License :: OSI Approved :: BSD License',
-    'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
-    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
-    'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
+    'MIT': 'License :: OSI Approved :: MIT License',
+    'BSD 2-Clause "Simplified"': 'License :: OSI Approved :: BSD License',
+    'BSD 3-Clause "Revised"': 'License :: OSI Approved :: BSD License',
+    'Unlicense': 'License :: OSI Approved :: The Unlicense (Unlicense)',
+    'GNU GPLv3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+    'GNU AGPLv3': 'License :: OSI Approved :: GNU Affero General Public License v3'
 } %}
 
 # Classifiers help users find your project by categorizing it.
@@ -115,14 +116,14 @@ classifiers = [  # Optional
 # For an analysis of this field vs pip's requirements files see:
 # https://packaging.python.org/discussions/install-requires-vs-requirements/
 dependencies = [ # Optional
-{% if use_cli %}  '{{ command_line_interface }}',{% endif%}
+{% if use_cli %}  '{{ commandline_interface }}',{% endif%}
 ]
 
 # List additional groups of dependencies here (e.g. development
 # dependencies). Users will be able to install these using the "extras"
 # syntax, for example:
 #
-#   $ pip install {{ repository_name }}[dev]
+#   $ pip install {{ project_name }}[dev]
 #
 # Similar to `dependencies` above, these must be valid existing
 # projects.
@@ -148,11 +149,11 @@ test = [
 # maintainers, and where to support the project financially. The key is
 # what's used to render the link text on PyPI.
 [project.urls]  # Optional
-"Homepage" = "https://github.com/{{ github_username }}/{{ repository_name }}"
-"Bug Reports" = "https://github.com/{{ github_username }}/{{ repository_name }}/issues"
+"Homepage" = "https://github.com/{{ github_username }}/{{ project_name }}"
+"Bug Reports" = "https://github.com/{{ github_username }}/{{ project_name }}/issues"
 # "Funding" = "https://donate.pypi.org"
 # "Say Thanks!" = "http://saythanks.io/to/example"
-"Source" = "https://github.com/{{ github_username }}/{{ repository_name }}"
+"Source" = "https://github.com/{{ github_username }}/{{ project_name }}"
 
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.
