@@ -4,28 +4,17 @@
 
 {% if use_pytest == 'y' -%}
 import pytest
-{%- endif %}
-{%- if command_line_interface|lower == 'click' %}
-from click.testing import CliRunner
-{%- endif %}
 
 from {{ package_name }} import {{ package_name }}
-{%- if command_line_interface|lower == 'click' %}
-from {{ package_name }} import cli
-{%- endif %}
 
-{%- if use_pytest == 'y' %}
-{%- if command_line_interface|lower == 'click' %}
+def test_example_class_construction():
+    my_instance = {{ package_name }}.ExampleClass(123)
+    assert isinstance(my_instance.passed_argument, int)
+    assert my_instance.passed_argument == 123
 
+def test_example_class_convert_argument_to_str():
+    my_instance = {{ package_name }}.ExampleClass(123)
+    assert isinstance(my_instance.passed_argument, int)
+    assert isinstance(my_instance.convert_argument_to_str(), str)
 
-def test_command_line_interface():
-    """Test the CLI."""
-    runner = CliRunner()
-    result = runner.invoke(cli.main)
-    assert result.exit_code == 0
-    assert '{{ package_name }}.cli.main' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
-    assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
-{%- endif %}
 {%- endif %}
