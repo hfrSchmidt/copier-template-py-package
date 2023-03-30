@@ -56,21 +56,21 @@ supported_py_versions:
 py_dev_version:
   type: str
   default: |-
-    {%- if '3.11' in supported_py_versions -%}'3.11'
-    {%- elif '3.10' in supported_py_versions -%}'3.10'
-    {%- elif '3.9' in supported_py_versions -%}'3.9'
-    {%- elif '3.8' in supported_py_versions -%}'3.8'
-    {%- elif '3.7' in supported_py_versions -%}'3.7'{%- endif -%}
+    {%- if '3.11' in supported_py_versions -%}3.11
+    {%- elif '3.10' in supported_py_versions -%}3.10
+    {%- elif '3.9' in supported_py_versions -%}3.9
+    {%- elif '3.8' in supported_py_versions -%}3.8
+    {%- elif '3.7' in supported_py_versions -%}3.7{%- endif -%}
   help: What is your main development python version?
 
 min_py_version:
   type: str
   default: |-
-    {%- if '3.7' in supported_py_versions -%}'3.7'
-    {%- elif '3.8' in supported_py_versions -%}'3.8'
-    {%- elif '3.9' in supported_py_versions -%}'3.9'
-    {%- elif '3.10' in supported_py_versions -%}'3.10'
-    {%- elif '3.11' in supported_py_versions -%}'3.11'{%- endif -%}
+    {%- if '3.7' in supported_py_versions -%}3.7
+    {%- elif '3.8' in supported_py_versions -%}3.8
+    {%- elif '3.9' in supported_py_versions -%}3.9
+    {%- elif '3.10' in supported_py_versions -%}3.10
+    {%- elif '3.11' in supported_py_versions -%}3.11{%- endif -%}
   help: What is the minimum python version you wish to support?
 
 use_pytest:
