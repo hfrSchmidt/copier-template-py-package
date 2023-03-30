@@ -67,7 +67,7 @@ setuptools.setup(
         ],
     },
 {%- endif %}
-    python_requires=">={{ min_py_version }}",
+    python_requires={{ '>=' + min_py_version }},
     include_package_data=True,
     zip_safe=False,
 )
