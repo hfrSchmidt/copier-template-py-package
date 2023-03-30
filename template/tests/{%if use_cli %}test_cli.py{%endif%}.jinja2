@@ -4,10 +4,10 @@
 
 from {{ package_name }} import cli
 
-{% if use_pytest == 'y' -%}
+{% if use_pytest -%}
 import pytest
 
-{%- if command_line_interface|lower == 'click' %}
+{%- if commandline_interface|lower == 'click' %}
 from click.testing import CliRunner
 
 def test_command_line_interface():
