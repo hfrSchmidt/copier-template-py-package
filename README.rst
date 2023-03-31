@@ -1,8 +1,8 @@
 =============================
-Copier Python CLI template
+Copier Python package template
 =============================
 
-A copier template to get started with a GitHub-based python CLI application. 
+A copier template to get started with a GitHub-based python package / CLI application. 
 
 What's inside?
 --------
