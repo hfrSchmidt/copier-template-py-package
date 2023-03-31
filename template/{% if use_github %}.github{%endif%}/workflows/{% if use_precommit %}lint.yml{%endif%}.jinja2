@@ -10,7 +10,7 @@ on:
     paths-ignore: [ "docs/**" ]
 
 concurrency:
-  group: {% raw %}${{ github.head_ref || github.run_id }} {% endraw %}
+  group: {% raw %}${{ github.head_ref || github.run_id }}{% endraw %}
   cancel-in-progress: true
 
 jobs:

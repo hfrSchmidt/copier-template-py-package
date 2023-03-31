@@ -2,25 +2,26 @@
 
 """Tests for the `{{ package_name }}` CLI."""
 
+{%- if commandline_interface | lower == 'click' %}
+from click.testing import CliRunner
+{%- endif%}
+
 from {{ package_name }} import cli
 
-{% if use_pytest -%}
-import pytest
-
+{%- if use_pytest %}
 {%- if commandline_interface|lower == 'click' %}
-from click.testing import CliRunner
 
 def test_command_line_interface():
     """Test the CLI."""
     runner = CliRunner()
     result = runner.invoke(cli.main)
     assert result.exit_code == 0
-    assert '{{ package_name }}.cli.main' in result.output
-    help_result = runner.invoke(cli.main, ['--help'])
+    assert "{{ package_name }}.cli.main" in result.output
+    help_result = runner.invoke(cli.main, ["--help"])
     assert help_result.exit_code == 0
-    assert '--help  Show this message and exit.' in help_result.output
+    assert "--help  Show this message and exit." in help_result.output
 
-{% else %}
+{%- else %}
 
 def test_command_line_interface():
     """Test your CLI here if you are not using click."""

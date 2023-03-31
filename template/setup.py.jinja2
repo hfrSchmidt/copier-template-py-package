@@ -5,7 +5,9 @@ import os
 
 import setuptools
 
-dependencies = [{%- if use_cli and commandline_interface == 'click' %}'Click>=8.0',{%- endif%}]
+dependencies = [{%- if use_cli and commandline_interface == 'click' %}
+    'Click>=8.0',
+{%- endif%}]
 
 {%- set license_classifiers = {
     'MIT': 'License :: OSI Approved :: MIT License',
@@ -27,7 +29,9 @@ with io.open(readme_filename, encoding="utf-8") as readme_file:
 # Only include packages under the '{{ package_name }}' namespace. Do not include tests,
 # benchmarks, etc.
 packages = [
-    package for package in setuptools.find_packages() if package.startswith("{{ package_name }}")
+    package
+    for package in setuptools.find_packages()
+    if package.startswith("{{ package_name }}")
 ]
 
 # Determine which namespaces are needed, when namespaced packages are supposed to be used
@@ -49,12 +53,12 @@ setuptools.setup(
 {%- if open_source_license in license_classifiers %}
         "{{ license_classifiers[open_source_license] }}",
 {%- endif %}
-    "{{ intended_audience }}",
-    "{{ target_os }}",
-    "{{ topic }}",
-    "Programming Language :: Python",
+        "{{ intended_audience }}",
+        "{{ target_os }}",
+        "{{ topic }}",
+        "Programming Language :: Python",
 {%- for py_version in supported_py_versions %}
-    "Programming Language :: Python :: {{ py_version }}",
+        "Programming Language :: Python :: {{ py_version }}",
 {%- endfor %}
     ],
     packages=packages,
@@ -62,8 +66,8 @@ setuptools.setup(
     install_requires=dependencies,
 {%- if use_cli %}
     entry_points={
-        'console_scripts': [
-            '{{ package_name }}={{ package_name }}.cli:main',
+        "console_scripts": [
+            "{{ package_name }}={{ package_name }}.cli:main",
         ],
     },
 {%- endif %}

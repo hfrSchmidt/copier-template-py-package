@@ -14,7 +14,7 @@ updates:
     labels:
       - "dependencies"
       - "gh-actions"
-  
+
   # Update the requirements/*.txt files
   - package-ecosystem: "pip"
     directory: "/requirements"

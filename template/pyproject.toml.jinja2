@@ -186,8 +186,8 @@ legacy_tox_ini = """
 
 {%- if use_pytest %}
   [testenv]
-  description = run unit tests {%if use_coverage %} with coverage analysis {%endif%}
-  deps = 
+  description = run unit tests{%if use_coverage %} with coverage analysis{%endif%}
+  deps =
     pytest
   {%- if use_coverage %}
     pytest-cov
