@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
 """Tests for the `{{ package_name }}` CLI."""
-
 {%- if commandline_interface | lower == 'click' %}
-from click.testing import CliRunner
-{%- endif%}
 
+from click.testing import CliRunner
+
+{%- endif%}
 from {{ package_name }} import cli
+
 
 {%- if use_pytest %}
 {%- if commandline_interface|lower == 'click' %}
