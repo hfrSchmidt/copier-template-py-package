@@ -6,7 +6,7 @@ import os
 import setuptools
 
 dependencies = [{%- if use_cli and commandline_interface == 'click' %}
-    'Click>=8.0',
+    "Click>=8.0",
 {% endif%}]
 
 {%- set license_classifiers = {
