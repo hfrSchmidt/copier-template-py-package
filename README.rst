@@ -19,6 +19,7 @@ What's inside?
 How to use
 --------
 There are several steps necessary to get started with this template:
+
 * Install copier (Instructions can be found in their documentation_)
 * Create a destination project directory
 * In case you intend to update the template in the future: The destination needs to be a git repository.
