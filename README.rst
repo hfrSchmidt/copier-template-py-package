@@ -9,6 +9,8 @@ What's inside?
 * A very minimal python package with a CLI
 * CLI skeleton using Click 
 * CI/CD using GitHub-Actions
+* Dependabot updates for dependencies and GitHub-Actions
+* Pre-commit updates via GitHub-Action
 * Testing using tox, pytest, coverage/pytest-cov
 * Pre-commit configuration
 * Linting, code formatting using flake8, black and isort
