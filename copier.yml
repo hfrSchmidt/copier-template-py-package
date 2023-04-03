@@ -10,17 +10,13 @@ _skip_if_exists:
   - "AUTHORS.rst"
 
 # questions
-project_name:
+package_name:
   type: str
-  help: "What is your project name? A valid name consists only of ASCII letters and numbers, period, underscore and hyphen. It must start and end with a letter or number."
+  help: What is your package name? Package names should be short and all lowercase. The use of underscores is discouraged (PEP8), use hypens instead.
 
 project_short_description:
   type: str
   help: What does your project do?
-
-package_name:
-  type: str
-  help: What is your package name? Package names should be short and all lowercase. The use of underscores is discouraged (PEP8).
 
 full_name:
   type: str

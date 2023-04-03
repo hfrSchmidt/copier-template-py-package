@@ -3,14 +3,14 @@
 # package, this name will be registered for you. It will determine how
 # users can install this project, e.g.:
 #
-# $ pip install {{ project_name }}
+# $ pip install {{ package_name }}
 #
-# And where it will live on PyPI: https://pypi.org/project/{{ project_name }}/
+# And where it will live on PyPI: https://pypi.org/project/{{ package_name }}/
 #
 # There are some restrictions on what makes a valid project name
 # specification here:
 # https://packaging.python.org/specifications/core-metadata/#name
-name = "{{ project_name }}"  # Required
+name = "{{ package_name }}"  # Required
 
 # Versions should comply with PEP 440:
 # https://www.python.org/dev/peps/pep-0440/
@@ -123,7 +123,7 @@ dependencies = [ # Optional
 # dependencies). Users will be able to install these using the "extras"
 # syntax, for example:
 #
-#   $ pip install {{ project_name }}[dev]
+#   $ pip install {{ package_name }}[dev]
 #
 # Similar to `dependencies` above, these must be valid existing
 # projects.
@@ -149,11 +149,11 @@ test = [
 # maintainers, and where to support the project financially. The key is
 # what's used to render the link text on PyPI.
 [project.urls]  # Optional
-"Homepage" = "https://github.com/{{ github_username }}/{{ project_name }}"
-"Bug Reports" = "https://github.com/{{ github_username }}/{{ project_name }}/issues"
+"Homepage" = "https://github.com/{{ github_username }}/{{ package_name }}"
+"Bug Reports" = "https://github.com/{{ github_username }}/{{ package_name }}/issues"
 # "Funding" = "https://donate.pypi.org"
 # "Say Thanks!" = "http://saythanks.io/to/example"
-"Source" = "https://github.com/{{ github_username }}/{{ project_name }}"
+"Source" = "https://github.com/{{ github_username }}/{{ package_name }}"
 
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.

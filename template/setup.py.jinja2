@@ -40,14 +40,14 @@ packages = [
 #     namespaces.append("{{ package_name }}.<namespace>")
 
 setuptools.setup(
-    name="{{ project_name }}",
+    name="{{ package_name }}",
     version="{{ initial_version }}",
     description="{{ project_short_description }}",
     long_description=readme,
     author="{{ full_name }}",
     author_email="{{ email }}",
 {% if is_open_source %}    license="{{ open_source_license }}",{% endif %}
-    url="https://github.com/{{ github_username }}/{{ project_name }}",
+    url="https://github.com/{{ github_username }}/{{ package_name }}",
     classifiers=[
         "{{ release_status }}",
 {%- if open_source_license in license_classifiers %}
