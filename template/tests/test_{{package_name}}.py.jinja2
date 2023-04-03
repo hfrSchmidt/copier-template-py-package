@@ -2,7 +2,7 @@
 
 """Tests for `{{ package_name }}` package."""
 
-{% if use_pytest -%}
+{%- if use_pytest %}
 from {{ package_name }} import {{ package_name }}
 
 
@@ -16,5 +16,4 @@ def test_example_class_convert_argument_to_str():
     my_instance = {{ package_name }}.ExampleClass(123)
     assert isinstance(my_instance.passed_argument, int)
     assert isinstance(my_instance.convert_argument_to_str(), str)
-
-{%- endif -%}
+{%- endif %}

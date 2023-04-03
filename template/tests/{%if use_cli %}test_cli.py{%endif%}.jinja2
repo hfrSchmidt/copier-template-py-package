@@ -4,10 +4,10 @@
 {%- if commandline_interface | lower == 'click' %}
 
 from click.testing import CliRunner
-
+{# #}
 {%- endif%}
 from {{ package_name }} import cli
-
+{# #}
 
 {%- if use_pytest %}
 {%- if commandline_interface|lower == 'click' %}
