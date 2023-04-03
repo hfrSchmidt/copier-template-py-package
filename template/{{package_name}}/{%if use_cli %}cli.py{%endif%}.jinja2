@@ -1,11 +1,11 @@
 """Console script for {{ package_name }}."""
 import sys
-
+{# #}
 {%- if commandline_interface|lower == 'click' %}
 import click
 {%- endif %}
-
-
+{# #}
+{# #}
 {%- if commandline_interface|lower == 'click' %}
 @click.command()
 def main(args=None):
