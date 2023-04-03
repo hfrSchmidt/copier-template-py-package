@@ -6,13 +6,13 @@ import click
 {%- endif %}
 
 
-{% if commandline_interface|lower == 'click' %}
+{%- if commandline_interface|lower == 'click' %}
 @click.command()
 def main(args=None):
     """Console script for {{ package_name }}."""
     click.echo("Place your code into {{ package_name }}.cli.main")
     return 0
-{% else %}
+{%- else %}
 def main(args=None):
     """Currently this kind of commandline interface is not supported"""
     return 1
