@@ -1,11 +1,11 @@
-=============================
+==============================
 Copier Python package template
-=============================
+==============================
 
 A copier template to get started with a GitHub-based python package / CLI application. 
 
 What's inside?
---------
+--------------
 * A very minimal python package with a CLI
 * CLI skeleton using Click 
 * CI/CD using GitHub-Actions
@@ -19,9 +19,12 @@ What's inside?
 * Requirements subfolder with dev.txt, test.txt and prod.txt
 
 How to use
---------
+----------
 There are several steps necessary to get started with this template:
 
+Initial copy:
+=============
+The following instructions are only necessary to execute once, when you start with your new package.
 * Install copier (Instructions can be found in their documentation_)
 * Create a destination project directory
 * In case you intend to update the template in the future: The destination needs to be a git repository.
@@ -32,7 +35,13 @@ There are several steps necessary to get started with this template:
 * Install the dependencies you need. For example the development dependencies: ``python3 -m pip install -r requirements/dev.txt``
 * Install pre-commit hooks (if you want to use pre-commit): ``pre-commit install``
 * Start coding...
-* When you want to update the template to the newest version: ``copier update``
+
+Update:
+=======
+When you want to update your package with the newest version of the template use the following:
+* ``copier update``
+You will be asked all the questions from the initial generation again. In case you want to skip the questions and use your previous answers:
+* ``copier -f update``
 
 .. _documentation: https://copier.readthedocs.io/en/stable/
 
