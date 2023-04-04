@@ -25,6 +25,7 @@ There are several steps necessary to get started with this template:
 Initial copy:
 =============
 The following instructions are only necessary to execute once, when you start with your new package.
+
 * Install copier (Instructions can be found in their documentation_)
 * Create a destination project directory
 * In case you intend to update the template in the future: The destination needs to be a git repository.
@@ -39,9 +40,11 @@ The following instructions are only necessary to execute once, when you start wi
 Update:
 =======
 When you want to update your package with the newest version of the template use the following:
+
 * ``copier update``
+
 You will be asked all the questions from the initial generation again. In case you want to skip the questions and use your previous answers:
+
 * ``copier -f update``
 
 .. _documentation: https://copier.readthedocs.io/en/stable/
-
