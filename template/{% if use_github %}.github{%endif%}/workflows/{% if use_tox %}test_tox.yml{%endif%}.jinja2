@@ -20,7 +20,7 @@ jobs:
       matrix:
         python_version: [
 {%- for py_version in supported_py_versions %}
-          {{ py_version }}{% if not loop.last %},{% endif %}
+          "{{ py_version }}"{% if not loop.last %},{% endif %}
 {%- endfor %}
         ]
     steps:
