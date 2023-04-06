@@ -37,6 +37,14 @@ The following instructions are only necessary to execute once, when you start wi
 * Install pre-commit hooks (if you want to use pre-commit): ``pre-commit install``
 * Start coding...
 
+If you want to automatically create PRs to update the pre-commit hooks' revisions, you need to additionally create a 
+"fine-grained personal access token" (FPAT_) for your repository. This is especially important for being able to trigger other CI actions
+on automatically created PRs, so you can be confident that an update of a dependency / pre-commit hook does not break your CI.
+The FPAT needs to be scoped to your target repository and needs repository permissions to read metadata and read + write access 
+to content as well as pull requests.
+After you have generated the FPAT add it to the repository as a secret called "FPAT".
+There are other means of achieving this available from here_
+
 Update:
 =======
 When you want to update your package with the newest version of the template use the following:
@@ -48,3 +56,5 @@ You will be asked all the questions from the initial generation again. In case y
 * ``copier -f update``
 
 .. _documentation: https://copier.readthedocs.io/en/stable/
+.. _FPAT: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+.. _here: https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
