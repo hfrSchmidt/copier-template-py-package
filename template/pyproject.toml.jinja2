@@ -186,21 +186,29 @@ legacy_tox_ini = """
 
 {%- if use_pytest %}
   [testenv]
-  description = run unit tests{%if use_coverage %} with coverage analysis{%endif%}
+  description = run unit tests
+  deps =
+    -r requirements/test.txt
+  commands = pytest tests
+
+  {%- if use_coverage %}
+  [testenv:cov]
+  description = run coverage analysis
+  base_python = python3.10
   deps =
     pytest
-  {%- if use_coverage %}
-    pytest-cov
-  commands = pytest --cov {{ package_name }} --cov-append --cov-report=term-missing
-  {%- else%}
-  commands = pytest tests
-  {%- endif%}
+    coverage
+  commands =
+    coverage run -p -m pytest
+    coverage combine
+    coverage json
 
   [testenv:clean]
   description = remove coverage reports
   deps = coverage
   skip_install = true
   commands = coverage erase
+  {%- endif%}
 {%- endif%}
 """
 {%- endif%}
